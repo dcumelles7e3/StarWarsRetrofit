@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import cat.itb.starwarsretrofit.adapter.StarshipAdapter;
+import cat.itb.starwarsretrofit.adapter.PeopleAdapter;
 import cat.itb.starwarsretrofit.model.Data;
-import cat.itb.starwarsretrofit.model.Starship;
+import cat.itb.starwarsretrofit.model.People;
 import cat.itb.starwarsretrofit.webservice.WebServiceClient;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -26,8 +26,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recycler;
-    private StarshipAdapter adapter;
-    private List<Starship> starships;
+    private PeopleAdapter adapter;
+    private List<People> starships;
 
     private Retrofit retrofit;
     private HttpLoggingInterceptor loggingInterceptor;
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recycler = findViewById(R.id.recycler_view);
-        starships = new ArrayList<Starship>();
-        adapter = new StarshipAdapter(starships);
+        starships = new ArrayList<People>();
+        adapter = new PeopleAdapter(starships);
 
         LinearLayoutManager layout = new LinearLayoutManager(this);
         recycler.setAdapter(adapter);
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<Data> call = client.getStarships();
+        Call<Data> call = client.getPeople();
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
