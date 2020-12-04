@@ -6,9 +6,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Url;
 
 public interface WebServiceClient {
-    @GET("starships")
-    Call<Data> getStarships();
+    @GET("people")
+    Call<Data> getPeople();
 
-    @GET()
-    Call<Data> getStarships(@Url String url);
+
 }

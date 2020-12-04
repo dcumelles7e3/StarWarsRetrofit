@@ -24,17 +24,17 @@
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/tv_name"/>
     <TextView
-        android:id="@+id/tv_manufacturer"
+        android:id="@+id/tv_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Fabricante: "
+        android:text="Estatura: "
         android:layout_below="@+id/tv_name"
         android:textColor="@color/yellow"
         android:layout_margin="5dp"/>
     <TextView
-        android:id="@+id/tv_manufacturer_value"
+        android:id="@+id/tv_height_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic"
@@ -42,20 +42,20 @@
         android:text="Nombre: "
         android:textColor="@color/yellow"
         android:layout_margin="5dp"
-        android:layout_toRightOf="@+id/tv_manufacturer"
+        android:layout_toRightOf="@+id/tv_height"
         android:layout_below="@id/tv_name"/>
     <TextView
-        android:id="@+id/tv_speed"
+        android:id="@+id/tv_eye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Velocidad: "
-        android:layout_below="@+id/tv_manufacturer"
+        android:text="Color Ojos: "
+        android:layout_below="@+id/tv_height"
         android:textColor="@color/yellow"
         android:layout_margin="5dp"/>
     <TextView
-        android:id="@+id/tv_speed_value"
+        android:id="@+id/tv_eye_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic"
@@ -63,11 +63,28 @@
         android:text="Nombre: "
         android:textColor="@color/yellow"
         android:layout_margin="5dp"
-        android:layout_toRightOf="@+id/tv_speed"
-        android:layout_below="@id/tv_manufacturer"/>
-
-
-
-
+        android:layout_toRightOf="@+id/tv_eye"
+        android:layout_below="@id/tv_height"/>
+    <TextView
+        android:id="@+id/tv_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Nacimiento: "
+        android:layout_below="@+id/tv_eye"
+        android:textColor="@color/yellow"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:id="@+id/tv_birth_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:text="Nombre: "
+        android:textColor="@color/yellow"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/tv_birth"
+        android:layout_below="@id/tv_eye"/>
 
 </RelativeLayout>

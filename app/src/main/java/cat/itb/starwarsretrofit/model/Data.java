@@ -6,7 +6,7 @@ public class Data {
     private int count;
     private String next;
     private String previous;
-    private List<Starship> results;
+    private List<People> results;
 
     public int getCount() {
         return count;
@@ -32,11 +32,11 @@ public class Data {
         this.previous = previous;
     }
 
-    public List<Starship> getResults() {
+    public List<People> getResults() {
         return results;
     }
 
-    public void setResults(List<Starship> results) {
+    public void setResults(List<People> results) {
         this.results = results;
     }
 }
