@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private PeopleAdapter adapter;
     private List<People> starships;
 
+    private Button b_back;
+    private Button b_next;
+
     private Retrofit retrofit;
     private HttpLoggingInterceptor loggingInterceptor;
     private OkHttpClient.Builder httpClientBuilder;
+    private String next;
+    private String previous;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +53,25 @@ public class MainActivity extends AppCompatActivity {
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(layout);
 
-        lanzarPeticion();
+        lanzarPeticion(null);
 
+        b_next = findViewById(R.id.b_next);
+        b_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarPeticion(next);
+            }
+        });
+        b_back = findViewById(R.id.b_back);
+        b_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarPeticion(previous);
+            }
+        });
     }
 
-    private void lanzarPeticion() {
+    private void lanzarPeticion(String url) {
         loggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
         httpClientBuilder = new OkHttpClient.Builder().addInterceptor(loggingInterceptor);
 
@@ -60,16 +81,33 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<Data> call = client.getPeople();
+        Call<Data> call;
+        if (url == null) {
+            call = client.getPeople();
+        } else {
+            call = client.getNext(url);
+        }
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
                 adapter.setData(response.body().getResults());
+                next = response.body().getNext();
+                if (next==null){
+                    b_next.setVisibility(View.INVISIBLE);
+                }else {
+                    b_next.setVisibility(View.VISIBLE);
+                }
+                previous = response.body().getPrevious();
+                if (previous==null){
+                    b_back.setVisibility(View.INVISIBLE);
+                }else {
+                    b_back.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
             public void onFailure(Call<Data> call, Throwable t) {
-                Log.d("TAG1","ERROR: "+t.getMessage());
+                Log.d("TAG1", "ERROR: " + t.getMessage());
             }
         });
     }

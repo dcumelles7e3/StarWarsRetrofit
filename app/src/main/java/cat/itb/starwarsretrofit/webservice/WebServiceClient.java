@@ -9,5 +9,6 @@ public interface WebServiceClient {
     @GET("people")
     Call<Data> getPeople();
 
-
+    @GET()
+    Call<Data> getNext(@Url String url);
 }
