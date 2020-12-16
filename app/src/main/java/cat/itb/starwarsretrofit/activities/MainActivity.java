@@ -1,4 +1,4 @@
-package cat.itb.starwarsretrofit;
+package cat.itb.starwarsretrofit.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cat.itb.starwarsretrofit.R;
 import cat.itb.starwarsretrofit.adapter.PeopleAdapter;
 import cat.itb.starwarsretrofit.model.Data;
 import cat.itb.starwarsretrofit.model.People;
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button b_back;
     private Button b_next;
+    private ImageButton b_search;
+    private EditText et_search;
+
 
     private Retrofit retrofit;
     private HttpLoggingInterceptor loggingInterceptor;
@@ -55,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
         lanzarPeticion(null);
 
+        et_search = findViewById(R.id.et_search);
+        b_search = findViewById(R.id.b_search);
+        b_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String search = et_search.getText().toString();
+                lanzarPeticion("https://swapi.dev/api/people/?search="+search);
+            }
+        });
         b_next = findViewById(R.id.b_next);
         b_next.setOnClickListener(new View.OnClickListener() {
             @Override

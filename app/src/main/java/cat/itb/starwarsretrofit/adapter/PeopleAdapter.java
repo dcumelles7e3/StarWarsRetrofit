@@ -32,6 +32,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleHold
         holder.tvName.setText(people.get(position).getName());
         holder.tvHeight.setText(people.get(position).getHeight());
         holder.tvEye.setText(people.get(position).getEyeColor());
+        holder.tvBirth.setText(people.get(position).getBirth());
     }
 
     @Override
@@ -48,12 +49,21 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleHold
         TextView tvName;
         TextView tvHeight;
         TextView tvEye;
+        TextView tvBirth;
 
         public PeopleHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name_value);
             tvHeight = itemView.findViewById(R.id.tv_height_value);
             tvEye = itemView.findViewById(R.id.tv_eye_value);
+            tvBirth = itemView.findViewById(R.id.tv_birth_value);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    //itemView.getContext().startActivity();
+                }
+            });
         }
     }
 }

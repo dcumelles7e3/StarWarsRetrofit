@@ -11,4 +11,6 @@ public interface WebServiceClient {
 
     @GET()
     Call<Data> getNext(@Url String url);
+
+
 }
