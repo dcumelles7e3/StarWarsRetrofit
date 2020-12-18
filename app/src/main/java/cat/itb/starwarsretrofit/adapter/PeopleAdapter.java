@@ -1,5 +1,6 @@
 package cat.itb.starwarsretrofit.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cat.itb.starwarsretrofit.R;
+import cat.itb.starwarsretrofit.activities.FilmActivity;
+import cat.itb.starwarsretrofit.activities.MainActivity;
 import cat.itb.starwarsretrofit.model.People;
 
 public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleHolder> {
@@ -60,8 +64,10 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    //itemView.getContext().startActivity();
+                    Intent intent = new Intent(itemView.getContext(), FilmActivity.class);
+                    ArrayList<String> films = (ArrayList) people.get(getAdapterPosition()).getFilms();
+                    intent.putStringArrayListExtra("filmlist",films);
+                    itemView.getContext().startActivity(intent);
                 }
             });
         }
