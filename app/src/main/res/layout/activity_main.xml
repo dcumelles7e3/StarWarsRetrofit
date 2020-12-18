@@ -18,16 +18,16 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Type to search"
+        android:hint="@string/type_to_search"
         android:inputType="textPersonName"/>
 
     <ImageButton
         android:id="@+id/b_search"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_toRightOf="@+id/et_search"
         app:srcCompat="@android:drawable/ic_search_category_default" />
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/b_back"
-        android:text="back"
+        android:text="@string/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -49,7 +49,7 @@
 
     <Button
         android:id="@+id/b_next"
-        android:text="next"
+        android:text="@string/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -58,6 +58,4 @@
         android:layout_marginEnd="90dp"
         android:layout_marginRight="90dp"
         android:layout_marginBottom="15dp" />
-
-
 </RelativeLayout>

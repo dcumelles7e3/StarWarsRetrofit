@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:hint="http://schemas.android.com/tools"
     android:background="@color/black"
     android:layout_margin="2dp">
 
@@ -10,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Nombre: "
+        android:text="@string/nombre"
         android:textColor="@color/yellow"
         android:layout_margin="5dp"/>
     <TextView
@@ -19,7 +21,7 @@
         android:layout_height="wrap_content"
         android:textStyle="italic"
         android:textSize="20sp"
-        android:text="Nombre: "
+        hint:text="Nombre: "
         android:textColor="@color/yellow"
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/tv_name"/>
@@ -29,7 +31,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Estatura: "
+        android:text="@string/estatura"
         android:layout_below="@+id/tv_name"
         android:textColor="@color/yellow"
         android:layout_margin="5dp"/>
@@ -39,7 +41,7 @@
         android:layout_height="wrap_content"
         android:textStyle="italic"
         android:textSize="20sp"
-        android:text="Nombre: "
+        hint:text="Nombre: "
         android:textColor="@color/yellow"
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/tv_height"
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Color Ojos: "
+        android:text="@string/color_ojos"
         android:layout_below="@+id/tv_height"
         android:textColor="@color/yellow"
         android:layout_margin="5dp"/>
@@ -60,7 +62,7 @@
         android:layout_height="wrap_content"
         android:textStyle="italic"
         android:textSize="20sp"
-        android:text="Nombre: "
+        hint:text="Nombre: "
         android:textColor="@color/yellow"
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/tv_eye"
@@ -71,7 +73,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Nacimiento: "
+        android:text="@string/nacimiento"
         android:layout_below="@+id/tv_eye"
         android:textColor="@color/yellow"
         android:layout_margin="5dp"/>
@@ -81,7 +83,7 @@
         android:layout_height="wrap_content"
         android:textStyle="italic"
         android:textSize="20sp"
-        android:text="Nombre: "
+        hint:text="Nombre: "
         android:textColor="@color/yellow"
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/tv_birth"

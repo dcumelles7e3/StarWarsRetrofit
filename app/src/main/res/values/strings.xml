@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">StarWars Retrofit</string>
+    <string name="nombre">Nombre:</string>
+    <string name="estatura">Estatura:</string>
+    <string name="color_ojos">Color Ojos:</string>
+    <string name="nacimiento">Nacimiento:</string>
+    <string name="type_to_search">Type to search</string>
+    <string name="back">back</string>
+    <string name="next">next</string>
 </resources>
