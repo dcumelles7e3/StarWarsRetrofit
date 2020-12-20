@@ -54,6 +54,7 @@ public class FilmActivity extends AppCompatActivity {
         lanzarPeticion(iterator.next());
         iterForward=true;
 
+        if (!iterator.hasNext()) b_next.setVisibility(View.INVISIBLE);
         b_back.setVisibility(View.INVISIBLE);
         b_back.setOnClickListener(v -> {
             if (iterForward) {
